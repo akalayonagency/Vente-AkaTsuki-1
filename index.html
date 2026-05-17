@@ -573,7 +573,7 @@
           throw new Error(data.error || "Erreur pendant la création du paiement.");
         }
 
-        window.location.href = data.url;
+        window.top.location.href = data.url;
       } catch (error) {
         statusText.textContent = error.message;
         buyButton.disabled = false;
