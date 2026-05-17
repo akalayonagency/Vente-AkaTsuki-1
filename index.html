@@ -4,138 +4,613 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AkaTsuki Organization — Gourde</title>
-  <meta name="description" content="Gourde officielle AkaTsuki Organization" />
+
   <style>
-    :root{--gold:#ffd46b;--orange:#ff6a00;--red:#b40000;--dark:#080305;--panel:rgba(24,5,5,.78)}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Georgia,'Times New Roman',serif;color:#fff;background:radial-gradient(circle at 50% 10%,#451100 0,#120303 42%,#020000 100%);min-height:100vh;overflow-x:hidden}
-    body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,105,0,.35),transparent 35%),linear-gradient(120deg,transparent,rgba(255,0,0,.14),transparent);pointer-events:none}
-    .wrap{position:relative;max-width:1180px;margin:0 auto;padding:34px 18px 70px}
-    .hero{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center;min-height:88vh}
-    .badge{display:inline-block;border:1px solid rgba(255,212,107,.5);padding:8px 14px;border-radius:999px;color:var(--gold);background:rgba(0,0,0,.35);letter-spacing:.08em;text-transform:uppercase;font-size:13px}
-    .title{font-size:clamp(42px,7vw,82px);line-height:.95;margin:22px 0 16px;text-transform:uppercase;text-shadow:0 0 18px rgba(255,95,0,.9)}
-    .subtitle{font-family:Arial,sans-serif;font-size:18px;line-height:1.65;color:#ffe9c0;max-width:590px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
-    .feature{font-family:Arial,sans-serif;padding:16px;border-radius:18px;background:rgba(0,0,0,.35);border:1px solid rgba(255,212,107,.2)}
-    .card{border:1px solid rgba(255,212,107,.45);background:var(--panel);border-radius:28px;padding:24px;box-shadow:0 0 40px rgba(255,70,0,.35), inset 0 0 30px rgba(255,125,0,.08);backdrop-filter:blur(8px)}
-    .product{position:relative}
-    .gallery{position:relative;overflow:hidden;border-radius:24px;background:rgba(0,0,0,.38);border:1px solid rgba(255,212,107,.22)}
-    .slides{display:flex;transition:transform .35s ease;touch-action:pan-y}
-    .slide{min-width:100%;height:440px;display:flex;align-items:center;justify-content:center;padding:22px}
-    .slide img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 0 24px rgba(255,95,0,.6))}
-    .nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:rgba(10,0,0,.8);color:var(--gold);font-size:26px;cursor:pointer;z-index:2}
-    .prev{left:12px}.next{right:12px}
-    .dots{display:flex;gap:8px;justify-content:center;margin:14px 0 2px}
-    .dot{width:10px;height:10px;border-radius:50%;border:1px solid var(--gold);background:transparent;cursor:pointer}.dot.active{background:var(--gold);box-shadow:0 0 12px rgba(255,212,107,.8)}
-    .thumb-note{font-family:Arial,sans-serif;color:#ffd9a3;font-size:13px;text-align:center;margin:8px 0 18px}
-    h2{font-size:28px;margin:18px 0 8px;color:#fff}
-    .small{font-family:Arial,sans-serif;color:#ffd9a3;line-height:1.5}
-    .price{font-size:46px;color:var(--gold);font-weight:bold;margin:12px 0 4px}
-    .qty{display:flex;align-items:center;gap:12px;margin:22px 0}.qty button{width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:#180202;color:var(--gold);font-size:22px;cursor:pointer}.qty span{font-size:22px;min-width:25px;text-align:center}
-    .buy{width:100%;border:0;border-radius:18px;padding:18px 20px;background:linear-gradient(135deg,#ffe39a,#ff7400,#a80000);color:#120000;font-weight:900;text-transform:uppercase;font-size:18px;letter-spacing:.08em;cursor:pointer;box-shadow:0 0 28px rgba(255,95,0,.55)}.buy:disabled{opacity:.6;cursor:wait}
-    .extra{margin-top:14px;font-family:Arial,sans-serif;font-size:13px;color:#ffe9c0;opacity:.88}
-    @media(max-width:850px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.title{font-size:46px}.slide{height:360px}}
+    :root {
+      --gold: #ffd46b;
+      --orange: #ff6a00;
+      --red: #b40000;
+      --dark: #050000;
+      --panel: rgba(22, 4, 4, .82);
+      --white: #fff5df;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 89, 0, .45), transparent 28%),
+        radial-gradient(circle at 20% 80%, rgba(180, 0, 0, .35), transparent 28%),
+        linear-gradient(160deg, #120000, #050000 60%, #000);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+    }
+
+    .page {
+      position: relative;
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+      padding: 42px 0 80px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: center;
+      min-height: 90vh;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 15px;
+      border: 1px solid rgba(255, 212, 107, .45);
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(0, 0, 0, .38);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 16px var(--orange);
+    }
+
+    h1 {
+      margin: 24px 0 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: .9;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 16px rgba(255, 106, 0, .8),
+        0 0 42px rgba(180, 0, 0, .55);
+    }
+
+    .description-zone {
+      position: relative;
+      padding: 22px;
+      border: 1px solid rgba(255, 212, 107, .3);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(0,0,0,.45), rgba(80,10,0,.35));
+      box-shadow: 0 0 32px rgba(255, 80, 0, .16);
+      overflow: hidden;
+    }
+
+    .description-zone p {
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      color: #ffe9c0;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .pixel-field {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .pixel {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      opacity: 0;
+      box-shadow: 0 0 10px rgba(255, 212, 107, .9);
+      animation: flyPixel 3.8s linear infinite;
+    }
+
+    @keyframes flyPixel {
+      0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(.6) rotate(0deg);
+      }
+      15% {
+        opacity: .9;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(0) rotate(180deg);
+      }
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .feature {
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, .36);
+      border: 1px solid rgba(255, 212, 107, .18);
+      color: #ffe6b3;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .product-card {
+      position: relative;
+      padding: 24px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 212, 107, .45);
+      background: var(--panel);
+      box-shadow:
+        0 0 48px rgba(255, 72, 0, .32),
+        inset 0 0 38px rgba(255, 140, 0, .08);
+      backdrop-filter: blur(10px);
+    }
+
+    .gallery {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      border: 1px solid rgba(255, 212, 107, .24);
+      background:
+        radial-gradient(circle at center, rgba(255, 106, 0, .22), transparent 52%),
+        linear-gradient(145deg, rgba(0,0,0,.7), rgba(54, 4, 4, .55));
+      user-select: none;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform .55s cubic-bezier(.22, .61, .36, 1);
+      will-change: transform;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .slide img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 28px rgba(255, 95, 0, .72));
+      transform: scale(.95);
+      opacity: .55;
+      transition: .45s ease;
+    }
+
+    .slide.active img {
+      transform: scale(1.04);
+      opacity: 1;
+    }
+
+    .gallery-button {
+      position: absolute;
+      top: 50%;
+      z-index: 5;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 212, 107, .7);
+      border-radius: 50%;
+      background: rgba(12, 0, 0, .78);
+      color: var(--gold);
+      font-size: 31px;
+      cursor: pointer;
+      transform: translateY(-50%);
+      box-shadow: 0 0 20px rgba(255, 106, 0, .32);
+    }
+
+    .gallery-button:hover {
+      background: linear-gradient(135deg, #ffe39a, #ff7400, #a80000);
+      color: #160000;
+    }
+
+    .prev {
+      left: 14px;
+    }
+
+    .next {
+      right: 14px;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 15px 0 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .dot.active {
+      width: 30px;
+      background: var(--gold);
+      box-shadow: 0 0 14px rgba(255, 212, 107, .85);
+    }
+
+    .product-title {
+      margin: 20px 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 29px;
+      line-height: 1.1;
+    }
+
+    .small {
+      margin: 0;
+      color: #ffd9a3;
+      line-height: 1.55;
+    }
+
+    .price {
+      margin: 15px 0 4px;
+      color: var(--gold);
+      font-size: 48px;
+      font-weight: 900;
+      text-shadow: 0 0 18px rgba(255, 106, 0, .45);
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 22px 0;
+    }
+
+    .qty button {
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      background: #180202;
+      color: var(--gold);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .qty span {
+      min-width: 28px;
+      text-align: center;
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .buy {
+      width: 100%;
+      border: 0;
+      border-radius: 18px;
+      padding: 18px 20px;
+      background: linear-gradient(135deg, #ffe39a, #ff7400, #a80000);
+      color: #160000;
+      font-size: 18px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(255, 95, 0, .56);
+    }
+
+    .buy:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .buy:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
+    .status {
+      margin-top: 14px;
+      color: #ffe9c0;
+      font-size: 13px;
+      opacity: .9;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .slide {
+        height: 360px;
+      }
+
+      .product-card {
+        padding: 18px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <main class="wrap">
+  <main class="page">
     <section class="hero">
       <div>
         <span class="badge">L’ombre de l’élite</span>
-        <h1 class="title">Gourde AKA<br/>TSUKI</h1>
-        <p class="subtitle">Gourde métal noire 330ml à l’effigie de l’agence AkaTsuki Organization. Paiement sécurisé via Stripe.</p>
 
+        <h1>Gourde AKA<br>TSUKI</h1>
 
+        <div class="description-zone" id="descriptionZone">
+          <div class="pixel-field" id="pixelField"></div>
+          <p>
+            Gourde métal noire 330ml à l’effigie de l’agence AkaTsuki Organization.
+            Un design sombre, premium et puissant, avec paiement sécurisé via Stripe
+            et expédition directe au client.
+          </p>
+        </div>
+
+        <div class="features">
+          <div class="feature">Design officiel agence</div>
+          <div class="feature">Paiement sécurisé Stripe</div>
+          <div class="feature">Expédition Printful</div>
         </div>
       </div>
 
-      <div class="card product">
+      <div class="product-card">
         <div class="gallery" id="gallery">
-          <button class="nav prev" id="prev" aria-label="Photo précédente">‹</button>
-          <div class="slides" id="slides">
-            <div class="slide"><img src="https://files.cdn.printful.com/files/49a/49a4fb60ec21ea1a1efaa1de0fbbbf1b_preview.png" alt="Gourde Akatsuki aperçu" /></div>
-            <div class="slide"><img src="https://files.cdn.printful.com/products/382/16030_1661782722.jpg" alt="Gourde noire Printful" /></div>
-            <div class="slide"><img src="/logo.png" alt="Logo AkaTsuki Organization" /></div>
-          </div>
-          <button class="nav next" id="next" aria-label="Photo suivante">›</button>
+          <button class="gallery-button prev" id="prev" type="button">‹</button>
+          <div class="slides" id="slides"></div>
+          <button class="gallery-button next" id="next" type="button">›</button>
         </div>
-        <div class="dots" id="dots"></div>
-       
 
-        <h2>Gourde Métal 330ml AkaTsuki Organization</h2>
+        <div class="dots" id="dots"></div>
+
+        <h2 class="product-title">Gourde Métal 330ml AkaTsuki Organization</h2>
         <p class="small">Stainless Steel Water Bottle — Black / 17 oz. Édition AKA / TSUKI.</p>
+
         <div class="price">24,90 €</div>
         <p class="small">Fabrication à la demande · livraison directe client.</p>
-        <div class="qty"><button id="minus">−</button><span id="qty">1</span><button id="plus">+</button></div>
-        <button class="buy" id="buy">Commander maintenant</button>
-        <p class="extra" id="status">Paiement sécurisé Stripe.</p>
+
+        <div class="qty">
+          <button id="minus" type="button">−</button>
+          <span id="qty">1</span>
+          <button id="plus" type="button">+</button>
+        </div>
+
+        <button class="buy" id="buy" type="button">Commander maintenant</button>
+        <div class="status" id="status">Paiement sécurisé Stripe.</div>
       </div>
     </section>
   </main>
 
   <script>
-    const BACKEND_URL = 'https://vente-akatsuki.onrender.com';
+    const BACKEND_URL = "https://vente-akatsuki.onrender.com";
 
-    // Pour ajouter des photos : ajoute une ligne dans ce tableau, puis ajoute la même image dans le HTML si tu veux l'afficher dès le chargement.
-    // Exemple : 'images/ma-photo-gourde.jpg'
+    /*
+      AJOUTE TES PHOTOS UNIQUEMENT ICI.
+      Mets simplement les noms exacts de tes fichiers.
+    */
     const PRODUCT_IMAGES = [
-      'gourde-1.png',
-      'gourde-2.png',
-      'gourde-3.png',   
-      'gourde-4.png',
-      'gourde-5.png'
+      "gourde-1.png",
+      "gourde-2.png",
+      "gourde-3.png",
+      "gourde-4.png",
+      "gourde-5.png"
     ];
 
-    let quantity = 1;
-    const qty = document.querySelector('#qty');
-    const status = document.querySelector('#status');
-    document.querySelector('#minus').onclick = () => { quantity = Math.max(1, quantity - 1); qty.textContent = quantity; };
-    document.querySelector('#plus').onclick = () => { quantity = Math.min(10, quantity + 1); qty.textContent = quantity; };
-
-    const slides = document.querySelector('#slides');
-    const dotsBox = document.querySelector('#dots');
     let current = 0;
+    let quantity = 1;
+    let startX = 0;
+    let autoplay;
 
-    PRODUCT_IMAGES.forEach((_, index) => {
-      const dot = document.createElement('button');
-      dot.className = 'dot' + (index === 0 ? ' active' : '');
-      dot.onclick = () => goTo(index);
-      dotsBox.appendChild(dot);
-    });
+    const slides = document.querySelector("#slides");
+    const dots = document.querySelector("#dots");
+    const gallery = document.querySelector("#gallery");
+    const qtyText = document.querySelector("#qty");
+    const statusText = document.querySelector("#status");
+    const buyButton = document.querySelector("#buy");
 
-    function goTo(index){
-      current = (index + PRODUCT_IMAGES.length) % PRODUCT_IMAGES.length;
-      slides.style.transform = `translateX(-${current * 100}%)`;
-      document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active', i === current));
+    function buildGallery() {
+      slides.innerHTML = "";
+      dots.innerHTML = "";
+
+      PRODUCT_IMAGES.forEach((image, index) => {
+        const slide = document.createElement("div");
+        slide.className = "slide";
+
+        const img = document.createElement("img");
+        img.src = image;
+        img.alt = "Photo produit " + (index + 1);
+        img.loading = "lazy";
+
+        slide.appendChild(img);
+        slides.appendChild(slide);
+
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "dot";
+        dot.addEventListener("click", () => {
+          goTo(index);
+          restartAutoplay();
+        });
+
+        dots.appendChild(dot);
+      });
+
+      goTo(0);
+      startAutoplay();
     }
 
-    document.querySelector('#prev').onclick = () => goTo(current - 1);
-    document.querySelector('#next').onclick = () => goTo(current + 1);
+    function goTo(index) {
+      if (!PRODUCT_IMAGES.length) return;
 
-    let startX = 0;
-    document.querySelector('#gallery').addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
-    document.querySelector('#gallery').addEventListener('touchend', e => {
-      const endX = e.changedTouches[0].clientX;
-      if (Math.abs(startX - endX) > 45) goTo(startX > endX ? current + 1 : current - 1);
-    }, {passive:true});
+      current = (index + PRODUCT_IMAGES.length) % PRODUCT_IMAGES.length;
+      slides.style.transform = `translateX(-${current * 100}%)`;
 
-    document.querySelector('#buy').onclick = async (e) => {
-      e.currentTarget.disabled = true;
-      status.textContent = 'Ouverture du paiement sécurisé...';
-      try {
-        const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({ quantity })
-        });
-        const data = await res.json();
-        if (!data.url) throw new Error(data.error || 'Erreur paiement');
-        window.location.href = data.url;
-      } catch(err) {
-        status.textContent = err.message;
-        e.currentTarget.disabled = false;
+      document.querySelectorAll(".slide").forEach((slide, i) => {
+        slide.classList.toggle("active", i === current);
+      });
+
+      document.querySelectorAll(".dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === current);
+      });
+    }
+
+    function nextSlide() {
+      goTo(current + 1);
+    }
+
+    function previousSlide() {
+      goTo(current - 1);
+    }
+
+    function startAutoplay() {
+      if (PRODUCT_IMAGES.length <= 1) return;
+
+      autoplay = setInterval(() => {
+        nextSlide();
+      }, 4200);
+    }
+
+    function restartAutoplay() {
+      clearInterval(autoplay);
+      startAutoplay();
+    }
+
+    document.querySelector("#next").addEventListener("click", () => {
+      nextSlide();
+      restartAutoplay();
+    });
+
+    document.querySelector("#prev").addEventListener("click", () => {
+      previousSlide();
+      restartAutoplay();
+    });
+
+    gallery.addEventListener("touchstart", (event) => {
+      startX = event.touches[0].clientX;
+    }, { passive: true });
+
+    gallery.addEventListener("touchend", (event) => {
+      const endX = event.changedTouches[0].clientX;
+      const difference = startX - endX;
+
+      if (Math.abs(difference) > 45) {
+        difference > 0 ? nextSlide() : previousSlide();
+        restartAutoplay();
       }
-    };
+    }, { passive: true });
+
+    gallery.addEventListener("mouseenter", () => {
+      clearInterval(autoplay);
+    });
+
+    gallery.addEventListener("mouseleave", () => {
+      startAutoplay();
+    });
+
+    document.querySelector("#minus").addEventListener("click", () => {
+      quantity = Math.max(1, quantity - 1);
+      qtyText.textContent = quantity;
+    });
+
+    document.querySelector("#plus").addEventListener("click", () => {
+      quantity = Math.min(10, quantity + 1);
+      qtyText.textContent = quantity;
+    });
+
+    buyButton.addEventListener("click", async () => {
+      buyButton.disabled = true;
+      statusText.textContent = "Ouverture du paiement sécurisé...";
+
+      try {
+        const response = await fetch(`${BACKEND_URL}/create-checkout-session`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            quantity: quantity
+          })
+        });
+
+        const data = await response.json();
+
+        if (!data.url) {
+          throw new Error(data.error || "Erreur pendant la création du paiement.");
+        }
+
+        window.location.href = data.url;
+      } catch (error) {
+        statusText.textContent = error.message;
+        buyButton.disabled = false;
+      }
+    });
+
+    function createPixels() {
+      const field = document.querySelector("#pixelField");
+      const totalPixels = 42;
+
+      for (let i = 0; i < totalPixels; i++) {
+        const pixel = document.createElement("span");
+        pixel.className = "pixel";
+
+        const side = i % 2 === 0 ? "left" : "right";
+        const top = Math.random() * 100;
+
+        pixel.style.top = top + "%";
+        pixel.style[side] = Math.random() * 12 + "px";
+
+        const direction = side === "left" ? -1 : 1;
+        pixel.style.setProperty("--x", direction * (60 + Math.random() * 120) + "px");
+        pixel.style.setProperty("--y", (-60 + Math.random() * 120) + "px");
+
+        pixel.style.animationDelay = Math.random() * 3.8 + "s";
+        pixel.style.animationDuration = 2.8 + Math.random() * 2.4 + "s";
+
+        if (Math.random() > .55) {
+          pixel.style.background = "#ff6a00";
+        }
+
+        field.appendChild(pixel);
+      }
+    }
+
+    buildGallery();
+    createPixels();
   </script>
 </body>
 </html>
