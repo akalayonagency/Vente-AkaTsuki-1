@@ -1,0 +1,198 @@
+<section class="aka-shop">
+  <div class="aka-card">
+    <div class="aka-left">
+      <img
+        src="https://files.cdn.printful.com/files/49a/49a4fb60ec21ea1a1efaa1de0fbbbf1b_preview.png"
+        alt="Gourde Akatsuki Organization"
+        class="aka-product"
+      />
+    </div>
+
+    <div class="aka-right">
+      <span class="aka-badge">AkaTsuki Organization</span>
+      <h1>Gourde Métal 330ml</h1>
+      <h2>L’Ombre de l’Élite</h2>
+
+      <p>
+        Gourde noire premium à l’effigie de l’agence AkaTsuki Organization.
+        Design sombre, rouge et doré, inspiré de l’univers anime.
+      </p>
+
+      <div class="aka-price">23,50 €</div>
+
+      <label>Quantité</label>
+      <select id="quantity">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+
+      <button id="buyBtn">Commander maintenant</button>
+
+      <p class="aka-small">
+        Paiement sécurisé par Stripe · Fabrication et expédition par Printful
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .aka-shop {
+    min-height: 650px;
+    padding: 70px 20px;
+    background:
+      radial-gradient(circle at center, rgba(255, 60, 0, 0.35), transparent 35%),
+      linear-gradient(135deg, #050000, #160000 45%, #000);
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+
+  .aka-card {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: rgba(10, 0, 0, 0.82);
+    border: 2px solid #b87926;
+    border-radius: 28px;
+    padding: 45px;
+    box-shadow: 0 0 45px rgba(255, 75, 0, 0.45);
+  }
+
+  .aka-product {
+    width: 100%;
+    max-width: 430px;
+    display: block;
+    margin: auto;
+    border-radius: 24px;
+    box-shadow: 0 0 40px rgba(255, 80, 0, 0.5);
+  }
+
+  .aka-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #ffb347;
+    color: #ffb347;
+    border-radius: 999px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+  }
+
+  .aka-right h1 {
+    font-size: 46px;
+    margin: 0;
+    color: #ffd27a;
+  }
+
+  .aka-right h2 {
+    font-size: 28px;
+    margin: 8px 0 20px;
+    color: #ff3b1f;
+  }
+
+  .aka-right p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #f5d8c8;
+  }
+
+  .aka-price {
+    font-size: 38px;
+    font-weight: bold;
+    color: #ffd27a;
+    margin: 25px 0;
+  }
+
+  .aka-right label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffb347;
+  }
+
+  #quantity {
+    width: 110px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #b87926;
+    background: #120000;
+    color: white;
+    margin-bottom: 25px;
+  }
+
+  #buyBtn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ff2b00, #ff9d00);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(255, 70, 0, 0.7);
+    transition: 0.2s;
+  }
+
+  #buyBtn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(255, 100, 0, 0.9);
+  }
+
+  .aka-small {
+    font-size: 13px !important;
+    opacity: 0.8;
+    margin-top: 18px;
+  }
+
+  @media (max-width: 800px) {
+    .aka-card {
+      grid-template-columns: 1fr;
+      padding: 25px;
+    }
+
+    .aka-right h1 {
+      font-size: 34px;
+    }
+  }
+</style>
+
+<script>
+  const API_URL = "https://vente-akatsuki.onrender.com";
+
+  document.getElementById("buyBtn").addEventListener("click", async () => {
+    const btn = document.getElementById("buyBtn");
+    const quantity = document.getElementById("quantity").value;
+
+    btn.disabled = true;
+    btn.innerText = "Redirection vers le paiement...";
+
+    try {
+      const response = await fetch(`${API_URL}/create-checkout-session`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ quantity })
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Erreur : impossible de créer le paiement.");
+        btn.disabled = false;
+        btn.innerText = "Commander maintenant";
+      }
+    } catch (error) {
+      alert("Erreur de connexion au serveur.");
+      btn.disabled = false;
+      btn.innerText = "Commander maintenant";
+    }
+  });
+</script>
