@@ -1,198 +1,141 @@
-<section class="aka-shop">
-  <div class="aka-card">
-    <div class="aka-left">
-      <img
-        src="https://files.cdn.printful.com/files/49a/49a4fb60ec21ea1a1efaa1de0fbbbf1b_preview.png"
-        alt="Gourde Akatsuki Organization"
-        class="aka-product"
-      />
-    </div>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AkaTsuki Organization — Gourde</title>
+  <meta name="description" content="Gourde officielle AkaTsuki Organization" />
+  <style>
+    :root{--gold:#ffd46b;--orange:#ff6a00;--red:#b40000;--dark:#080305;--panel:rgba(24,5,5,.78)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Georgia,'Times New Roman',serif;color:#fff;background:radial-gradient(circle at 50% 10%,#451100 0,#120303 42%,#020000 100%);min-height:100vh;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,105,0,.35),transparent 35%),linear-gradient(120deg,transparent,rgba(255,0,0,.14),transparent);pointer-events:none}
+    .wrap{position:relative;max-width:1180px;margin:0 auto;padding:34px 18px 70px}
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center;min-height:88vh}
+    .badge{display:inline-block;border:1px solid rgba(255,212,107,.5);padding:8px 14px;border-radius:999px;color:var(--gold);background:rgba(0,0,0,.35);letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+    .title{font-size:clamp(42px,7vw,82px);line-height:.95;margin:22px 0 16px;text-transform:uppercase;text-shadow:0 0 18px rgba(255,95,0,.9)}
+    .subtitle{font-family:Arial,sans-serif;font-size:18px;line-height:1.65;color:#ffe9c0;max-width:590px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+    .feature{font-family:Arial,sans-serif;padding:16px;border-radius:18px;background:rgba(0,0,0,.35);border:1px solid rgba(255,212,107,.2)}
+    .card{border:1px solid rgba(255,212,107,.45);background:var(--panel);border-radius:28px;padding:24px;box-shadow:0 0 40px rgba(255,70,0,.35), inset 0 0 30px rgba(255,125,0,.08);backdrop-filter:blur(8px)}
+    .product{position:relative}
+    .gallery{position:relative;overflow:hidden;border-radius:24px;background:rgba(0,0,0,.38);border:1px solid rgba(255,212,107,.22)}
+    .slides{display:flex;transition:transform .35s ease;touch-action:pan-y}
+    .slide{min-width:100%;height:440px;display:flex;align-items:center;justify-content:center;padding:22px}
+    .slide img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 0 24px rgba(255,95,0,.6))}
+    .nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:rgba(10,0,0,.8);color:var(--gold);font-size:26px;cursor:pointer;z-index:2}
+    .prev{left:12px}.next{right:12px}
+    .dots{display:flex;gap:8px;justify-content:center;margin:14px 0 2px}
+    .dot{width:10px;height:10px;border-radius:50%;border:1px solid var(--gold);background:transparent;cursor:pointer}.dot.active{background:var(--gold);box-shadow:0 0 12px rgba(255,212,107,.8)}
+    .thumb-note{font-family:Arial,sans-serif;color:#ffd9a3;font-size:13px;text-align:center;margin:8px 0 18px}
+    h2{font-size:28px;margin:18px 0 8px;color:#fff}
+    .small{font-family:Arial,sans-serif;color:#ffd9a3;line-height:1.5}
+    .price{font-size:46px;color:var(--gold);font-weight:bold;margin:12px 0 4px}
+    .qty{display:flex;align-items:center;gap:12px;margin:22px 0}.qty button{width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:#180202;color:var(--gold);font-size:22px;cursor:pointer}.qty span{font-size:22px;min-width:25px;text-align:center}
+    .buy{width:100%;border:0;border-radius:18px;padding:18px 20px;background:linear-gradient(135deg,#ffe39a,#ff7400,#a80000);color:#120000;font-weight:900;text-transform:uppercase;font-size:18px;letter-spacing:.08em;cursor:pointer;box-shadow:0 0 28px rgba(255,95,0,.55)}.buy:disabled{opacity:.6;cursor:wait}
+    .extra{margin-top:14px;font-family:Arial,sans-serif;font-size:13px;color:#ffe9c0;opacity:.88}
+    @media(max-width:850px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.title{font-size:46px}.slide{height:360px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="badge">L’ombre de l’élite</span>
+        <h1 class="title">Gourde AKA<br/>TSUKI</h1>
+        <p class="subtitle">Gourde métal noire 330ml à l’effigie de l’agence AkaTsuki Organization. Paiement sécurisé via Stripe.</p>
 
-    <div class="aka-right">
-      <span class="aka-badge">AkaTsuki Organization</span>
-      <h1>Gourde Métal 330ml</h1>
-      <h2>L’Ombre de l’Élite</h2>
 
-      <p>
-        Gourde noire premium à l’effigie de l’agence AkaTsuki Organization.
-        Design sombre, rouge et doré, inspiré de l’univers anime.
-      </p>
+        </div>
+      </div>
 
-      <div class="aka-price">24,90 €</div>
+      <div class="card product">
+        <div class="gallery" id="gallery">
+          <button class="nav prev" id="prev" aria-label="Photo précédente">‹</button>
+          <div class="slides" id="slides">
+            <div class="slide"><img src="https://files.cdn.printful.com/files/49a/49a4fb60ec21ea1a1efaa1de0fbbbf1b_preview.png" alt="Gourde Akatsuki aperçu" /></div>
+            <div class="slide"><img src="https://files.cdn.printful.com/products/382/16030_1661782722.jpg" alt="Gourde noire Printful" /></div>
+            <div class="slide"><img src="/logo.png" alt="Logo AkaTsuki Organization" /></div>
+          </div>
+          <button class="nav next" id="next" aria-label="Photo suivante">›</button>
+        </div>
+        <div class="dots" id="dots"></div>
+       
 
-      <label>Quantité</label>
-      <select id="quantity">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
+        <h2>Gourde Métal 330ml AkaTsuki Organization</h2>
+        <p class="small">Stainless Steel Water Bottle — Black / 17 oz. Édition AKA / TSUKI.</p>
+        <div class="price">24,90 €</div>
+        <p class="small">Fabrication à la demande · livraison directe client.</p>
+        <div class="qty"><button id="minus">−</button><span id="qty">1</span><button id="plus">+</button></div>
+        <button class="buy" id="buy">Commander maintenant</button>
+        <p class="extra" id="status">Paiement sécurisé Stripe.</p>
+      </div>
+    </section>
+  </main>
 
-      <button id="buyBtn">Commander maintenant</button>
+  <script>
+    const BACKEND_URL = 'https://vente-akatsuki.onrender.com';
 
-      <p class="aka-small">
-        Paiement sécurisé par Stripe · 
-      </p>
-    </div>
-  </div>
-</section>
+    // Pour ajouter des photos : ajoute une ligne dans ce tableau, puis ajoute la même image dans le HTML si tu veux l'afficher dès le chargement.
+    // Exemple : 'images/ma-photo-gourde.jpg'
+    const PRODUCT_IMAGES = [
+      'gourde-1.png',
+      'gourde-2.png',
+      'gourde-3.png'   
+      'gourde-4.png',
+      'gourde-5.png'
+    ];
 
-<style>
-  .aka-shop {
-    min-height: 650px;
-    padding: 70px 20px;
-    background:
-      radial-gradient(circle at center, rgba(255, 60, 0, 0.35), transparent 35%),
-      linear-gradient(135deg, #050000, #160000 45%, #000);
-    font-family: Arial, sans-serif;
-    color: white;
-  }
+    let quantity = 1;
+    const qty = document.querySelector('#qty');
+    const status = document.querySelector('#status');
+    document.querySelector('#minus').onclick = () => { quantity = Math.max(1, quantity - 1); qty.textContent = quantity; };
+    document.querySelector('#plus').onclick = () => { quantity = Math.min(10, quantity + 1); qty.textContent = quantity; };
 
-  .aka-card {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    background: rgba(10, 0, 0, 0.82);
-    border: 2px solid #b87926;
-    border-radius: 28px;
-    padding: 45px;
-    box-shadow: 0 0 45px rgba(255, 75, 0, 0.45);
-  }
+    const slides = document.querySelector('#slides');
+    const dotsBox = document.querySelector('#dots');
+    let current = 0;
 
-  .aka-product {
-    width: 100%;
-    max-width: 430px;
-    display: block;
-    margin: auto;
-    border-radius: 24px;
-    box-shadow: 0 0 40px rgba(255, 80, 0, 0.5);
-  }
+    PRODUCT_IMAGES.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (index === 0 ? ' active' : '');
+      dot.onclick = () => goTo(index);
+      dotsBox.appendChild(dot);
+    });
 
-  .aka-badge {
-    display: inline-block;
-    padding: 8px 16px;
-    border: 1px solid #ffb347;
-    color: #ffb347;
-    border-radius: 999px;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 13px;
-  }
-
-  .aka-right h1 {
-    font-size: 46px;
-    margin: 0;
-    color: #ffd27a;
-  }
-
-  .aka-right h2 {
-    font-size: 28px;
-    margin: 8px 0 20px;
-    color: #ff3b1f;
-  }
-
-  .aka-right p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #f5d8c8;
-  }
-
-  .aka-price {
-    font-size: 38px;
-    font-weight: bold;
-    color: #ffd27a;
-    margin: 25px 0;
-  }
-
-  .aka-right label {
-    display: block;
-    margin-bottom: 8px;
-    color: #ffb347;
-  }
-
-  #quantity {
-    width: 110px;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid #b87926;
-    background: #120000;
-    color: white;
-    margin-bottom: 25px;
-  }
-
-  #buyBtn {
-    display: block;
-    width: 100%;
-    padding: 18px;
-    border: none;
-    border-radius: 18px;
-    background: linear-gradient(135deg, #ff2b00, #ff9d00);
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0 25px rgba(255, 70, 0, 0.7);
-    transition: 0.2s;
-  }
-
-  #buyBtn:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 40px rgba(255, 100, 0, 0.9);
-  }
-
-  .aka-small {
-    font-size: 13px !important;
-    opacity: 0.8;
-    margin-top: 18px;
-  }
-
-  @media (max-width: 800px) {
-    .aka-card {
-      grid-template-columns: 1fr;
-      padding: 25px;
+    function goTo(index){
+      current = (index + PRODUCT_IMAGES.length) % PRODUCT_IMAGES.length;
+      slides.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active', i === current));
     }
 
-    .aka-right h1 {
-      font-size: 34px;
-    }
-  }
-</style>
+    document.querySelector('#prev').onclick = () => goTo(current - 1);
+    document.querySelector('#next').onclick = () => goTo(current + 1);
 
-<script>
-  const API_URL = "https://vente-akatsuki.onrender.com";
+    let startX = 0;
+    document.querySelector('#gallery').addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+    document.querySelector('#gallery').addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      if (Math.abs(startX - endX) > 45) goTo(startX > endX ? current + 1 : current - 1);
+    }, {passive:true});
 
-  document.getElementById("buyBtn").addEventListener("click", async () => {
-    const btn = document.getElementById("buyBtn");
-    const quantity = document.getElementById("quantity").value;
-
-    btn.disabled = true;
-    btn.innerText = "Redirection vers le paiement...";
-
-    try {
-      const response = await fetch(`${API_URL}/create-checkout-session`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ quantity })
-      });
-
-      const data = await response.json();
-
-      if (data.url) {
+    document.querySelector('#buy').onclick = async (e) => {
+      e.currentTarget.disabled = true;
+      status.textContent = 'Ouverture du paiement sécurisé...';
+      try {
+        const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({ quantity })
+        });
+        const data = await res.json();
+        if (!data.url) throw new Error(data.error || 'Erreur paiement');
         window.location.href = data.url;
-      } else {
-        alert("Erreur : impossible de créer le paiement.");
-        btn.disabled = false;
-        btn.innerText = "Commander maintenant";
+      } catch(err) {
+        status.textContent = err.message;
+        e.currentTarget.disabled = false;
       }
-    } catch (error) {
-      alert("Erreur de connexion au serveur.");
-      btn.disabled = false;
-      btn.innerText = "Commander maintenant";
-    }
-  });
-</script>
+    };
+  </script>
+</body>
+</html>
