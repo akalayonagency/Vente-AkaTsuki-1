@@ -211,7 +211,7 @@
 
           const data = await res.json();
           if (!data.url) throw new Error(data.error || "Erreur paiement");
-          window.location.href = data.url;
+          window.top.location.href = data.url;
         } catch (err) {
           status.textContent = "Erreur : " + err.message;
           button.disabled = false;
