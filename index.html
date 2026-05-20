@@ -16,12 +16,17 @@
 
     *{box-sizing:border-box;}
 
+    html,
+    body{
+      width:100%;
+      min-height:100%;
+    }
+
     body{
       margin:0;
       font-family:Georgia,'Times New Roman',serif;
       color:#fff;
-      background:radial-gradient(circle at 50% 10%,#451100 0,#120303 42%,#020000 100%);
-      min-height:100vh;
+      background:radial-gradient(circle at 50% 0%,#451100 0,#120303 42%,#020000 100%);
       overflow-x:hidden;
     }
 
@@ -30,24 +35,30 @@
       position:fixed;
       inset:0;
       background:
-        radial-gradient(circle at 50% 50%,rgba(255,105,0,.35),transparent 35%),
+        radial-gradient(circle at 50% 30%,rgba(255,105,0,.35),transparent 35%),
         linear-gradient(120deg,transparent,rgba(255,0,0,.14),transparent);
       pointer-events:none;
+      z-index:0;
     }
 
     .wrap{
       position:relative;
+      z-index:1;
+      width:100%;
       max-width:1180px;
       margin:0 auto;
-      padding:34px 18px 70px;
+      padding:14px 18px 90px;
     }
 
     .hero{
-      display:grid;
-      grid-template-columns:1fr 1.05fr;
-      gap:38px;
-      align-items:center;
-      min-height:88vh;
+      width:100%;
+    }
+
+    .intro{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 32px;
+      padding-top:4px;
     }
 
     .badge{
@@ -63,9 +74,9 @@
     }
 
     .title{
-      font-size:clamp(42px,7vw,82px);
-      line-height:.95;
-      margin:22px 0 16px;
+      font-size:clamp(44px,8vw,86px);
+      line-height:.92;
+      margin:18px 0 14px;
       text-transform:uppercase;
       text-shadow:0 0 18px rgba(255,95,0,.9);
     }
@@ -73,14 +84,18 @@
     .subtitle{
       font-family:Arial,sans-serif;
       font-size:18px;
-      line-height:1.65;
+      line-height:1.55;
       color:#ffe9c0;
-      max-width:590px;
+      max-width:650px;
+      margin:0 auto;
     }
 
     .shop{
       display:grid;
-      gap:22px;
+      gap:26px;
+      width:100%;
+      max-width:650px;
+      margin:0 auto;
     }
 
     .product-card{
@@ -358,11 +373,64 @@
     }
 
     @media(max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      .title{font-size:46px;}
-      .slide{height:330px;}
-      .controls{grid-template-columns:1fr;}
-      .qty{justify-content:flex-start;}
+      .wrap{
+        padding:12px 12px 90px;
+      }
+
+      .intro{
+        margin-bottom:24px;
+      }
+
+      .title{
+        font-size:46px;
+      }
+
+      .subtitle{
+        font-size:16px;
+      }
+
+      .shop{
+        max-width:100%;
+      }
+
+      .product-card{
+        padding:18px;
+        border-radius:24px;
+      }
+
+      .product-head{
+        flex-direction:column;
+        gap:10px;
+      }
+
+      .product-head h2{
+        font-size:24px;
+      }
+
+      .slide{
+        height:320px;
+        padding:16px;
+      }
+
+      .controls{
+        grid-template-columns:1fr;
+      }
+
+      .qty{
+        justify-content:flex-start;
+      }
+
+      #cartPanel{
+        right:10px;
+        left:10px;
+        width:auto;
+        bottom:78px;
+      }
+
+      #cartToggle{
+        right:12px;
+        bottom:12px;
+      }
     }
   </style>
 </head>
@@ -371,7 +439,7 @@
 
 <main class="wrap">
   <section class="hero">
-    <div>
+    <div class="intro">
       <span class="badge">L’ombre de l’élite</span>
 
       <h1 class="title">
@@ -768,6 +836,7 @@ PRODUCTS.forEach(product => {
     `).join("");
 
     updateGallery();
+    sendIframeHeight();
   }
 
   function refreshVariants(){
@@ -831,7 +900,21 @@ PRODUCTS.forEach(product => {
   };
 });
 
+function sendIframeHeight(){
+  const height = document.documentElement.scrollHeight;
+  window.parent.postMessage({
+    type:"AKATSUKI_IFRAME_HEIGHT",
+    height
+  }, "*");
+}
+
+window.addEventListener("load", sendIframeHeight);
+window.addEventListener("resize", sendIframeHeight);
+
+new ResizeObserver(sendIframeHeight).observe(document.body);
+
 renderCart();
+sendIframeHeight();
 </script>
 
 </body>
