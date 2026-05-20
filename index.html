@@ -348,427 +348,300 @@ Expédition directe client.
 </main>
 
 <script>
-
-const BACKEND_URL =
-"https://vente-akatsuki.onrender.com";
+const BACKEND_URL = "https://vente-akatsuki.onrender.com";
 
 const PRODUCTS = [
-
-{
-  key:"casquette",
-  name:"Casquette AkaTsuki Organization",
-  subtitle:"Casquette officielle AkaTsuki.",
-  badge:"Nouveauté",
-  priceText:"19,90 €",
-  images:[
-    "casquette-1.png",
-    "casquette-2.png",
-    "casquette-3.png"
-  ],
-  variants:{
-    "Unique":5314638516
+  {
+    key:"casquette",
+    name:"Casquette AkaTsuki Organization",
+    priceCents:2000,
+    priceText:"20,00 €",
+    colors:{
+      "White":{images:["casquette-white-1.png"],variants:{"Unique":5314638516}},
+      "Dark Navy":{images:["casquette-navy-1.png"],variants:{"Unique":5318044313}}
+    }
+  },
+  {
+    key:"sweatshirt",
+    name:"Pull AkaTsuki Organization",
+    priceCents:3490,
+    priceText:"34,90 €",
+    colors:{
+      "Black":{images:["pull-black-1.png"],variants:{S:5314630805,M:5314630806,L:5314630807,XL:5314630808,"2XL":5314630809,"3XL":5314630810,"4XL":5314630811,"5XL":5314630812}},
+      "White":{images:["pull-white-1.png"],variants:{S:5318047646,M:5318047647,L:5318047648,XL:5318047649,"2XL":5318047650,"3XL":5318047651,"4XL":5318047652,"5XL":5318047653}}
+    }
+  },
+  {
+    key:"tshirt",
+    name:"T-Shirt AkaTsuki Organization",
+    priceCents:2290,
+    priceText:"22,90 €",
+    colors:{
+      "White":{images:["tshirt-white-1.png"],variants:{S:5313991277,M:5313991278,L:5313991279,XL:5313991280,"2XL":5313991281,"3XL":5313991282}},
+      "Black":{images:["tshirt-black-1.png"],variants:{S:5318049010,M:5318049011,L:5318049012,XL:5318049013,"2XL":5318049014,"3XL":5318049015}}
+    }
+  },
+  {
+    key:"gourde",
+    name:"Gourde Métal AkaTsuki",
+    priceCents:3290,
+    priceText:"32,90 €",
+    colors:{
+      "Black":{images:["gourde-black-1.png"],variants:{"17 oz":5313644654}},
+      "White":{images:["gourde-white-1.png"],variants:{"17 oz":5318050131}}
+    }
+  },
+  {
+    key:"mug",
+    name:"Mug AkaTsuki Organization",
+    priceCents:1490,
+    priceText:"14,90 €",
+    colors:{
+      "White":{images:["mug-1.png"],variants:{"11 oz":5314630690}}
+    }
+  },
+  {
+    key:"coaster",
+    name:"Sous-verre AkaTsuki",
+    priceCents:890,
+    priceText:"8,90 €",
+    colors:{
+      "Original":{images:["coaster-1.png"],variants:{"Unique":5314630704}}
+    }
+  },
+  {
+    key:"magnet",
+    name:"Magnet AkaTsuki",
+    priceCents:690,
+    priceText:"6,90 €",
+    colors:{
+      "White":{images:["magnet-1.png"],variants:{"Unique":5314630686}}
+    }
   }
-},
-
-{
-  key:"sweatshirt",
-  name:"Pull AkaTsuki Organization",
-  subtitle:"Sweatshirt noir unisexe.",
-  badge:"Premium",
-  priceText:"32,90 €",
-  images:[
-    "pull-1.png",
-    "pull-2.png",
-    "pull-3.png"
-  ],
-  variants:{
-    "S":5314630805,
-    "M":5314630806,
-    "L":5314630807,
-    "XL":5314630808,
-    "2XL":5314630809,
-    "3XL":5314630810,
-    "4XL":5314630811,
-    "5XL":5314630812
-  }
-},
-
-{
-  key:"coaster",
-  name:"Sous-verre AkaTsuki",
-  subtitle:"Cork-back coaster.",
-  badge:"Goodie",
-  priceText:"11,90 €",
-  images:[
-    "coaster-1.png",
-    "coaster-2.png"
-  ],
-  variants:{
-    "Unique":5314630704
-  }
-},
-
-{
-  key:"mug",
-  name:"Mug AkaTsuki Organization",
-  subtitle:"Mug blanc brillant.",
-  badge:"Classique",
-  priceText:"14,90 €",
-  images:[
-    "mug-1.png",
-    "mug-2.png",
-    "mug-3.png"
-  ],
-  variants:{
-    "11 oz":5314630690
-  }
-},
-
-{
-  key:"magnet",
-  name:"Magnet AkaTsuki",
-  subtitle:"Magnet carré.",
-  badge:"Oui c'est trop chère",
-  priceText:"13,90 €",
-  images:[
-    "magnet-1.png",
-    "magnet-2.png"
-  ],
-  variants:{
-    "Unique":5314630686
-  }
-},
-
-{
-  key:"tshirt",
-  name:"T-Shirt AkaTsuki Organization",
-  subtitle:"T-shirt blanc officiel AkaTsuki.",
-  badge:"Le classique",
-  priceText:"20,90 €",
-  images:[
-    "tshirt-1.png",
-    "tshirt-2.png",
-    "tshirt-3.png",
-    "tshirt-4.png",
-    "tshirt-5.png",
-    "tshirt-6.png"
-  ],
-  variants:{
-    "S":5313991277,
-    "M":5313991278,
-    "L":5313991279,
-    "XL":5313991280,
-    "2XL":5313991281,
-    "3XL":5313991282
-  }
-},
-
-{
-  key:"gourde",
-  name:"Gourde Métal AkaTsuki",
-  subtitle:"Gourde noire officielle AkaTsuki.",
-  badge:"Coup de coeur de Tsuki",
-  priceText:"29,90 €",
-  images:[
-    "gourde-1.png",
-    "gourde-2.png",
-    "gourde-3.png",
-    "gourde-4.png",
-    "gourde-5.png"
-  ],
-  variants:{
-    "17 oz":5313644654
-  }
-}
-
 ];
+
+let cart = JSON.parse(localStorage.getItem("aka_cart") || "[]");
 
 const shop = document.querySelector("#shop");
 
-PRODUCTS.forEach((product)=>{
+function saveCart(){
+  localStorage.setItem("aka_cart", JSON.stringify(cart));
+  renderCart();
+}
 
-const sizes = Object.keys(product.variants);
+function formatPrice(cents){
+  return (cents / 100).toFixed(2).replace(".", ",") + " €";
+}
 
-const card = document.createElement("article");
+function addToCart(item){
+  const existing = cart.find(x => x.syncVariantId === item.syncVariantId);
 
-card.className = "product-card";
+  if(existing){
+    existing.quantity += item.quantity;
+  } else {
+    cart.push(item);
+  }
 
-card.innerHTML = `
+  saveCart();
+}
 
-<div class="product-head">
+function removeFromCart(index){
+  cart.splice(index, 1);
+  saveCart();
+}
 
-<div>
-<h2>${product.name}</h2>
-<p class="small">${product.subtitle}</p>
-</div>
+function renderCart(){
+  let cartBox = document.querySelector("#cartBox");
 
-<span class="tag">${product.badge}</span>
+  if(!cartBox){
+    cartBox = document.createElement("div");
+    cartBox.id = "cartBox";
+    cartBox.innerHTML = `
+      <button id="cartToggle">🛒 <span id="cartCount">0</span></button>
+      <div id="cartPanel">
+        <h2>Mon panier</h2>
+        <div id="cartItems"></div>
+        <div id="cartTotal"></div>
+        <button id="checkoutBtn">Commander le panier</button>
+      </div>
+    `;
+    document.body.appendChild(cartBox);
 
-</div>
+    document.querySelector("#cartToggle").onclick = () => {
+      document.querySelector("#cartPanel").classList.toggle("open");
+    };
 
-<div class="gallery">
+    document.querySelector("#checkoutBtn").onclick = checkoutCart;
+  }
 
-<button class="nav prev" type="button">
-‹
-</button>
+  const cartItems = document.querySelector("#cartItems");
+  const cartCount = document.querySelector("#cartCount");
+  const cartTotal = document.querySelector("#cartTotal");
 
-<div class="slides"></div>
+  cartItems.innerHTML = "";
 
-<button class="nav next" type="button">
-›
-</button>
+  let totalQty = 0;
+  let totalPrice = 0;
 
-</div>
+  cart.forEach((item, index) => {
+    totalQty += item.quantity;
+    totalPrice += item.priceCents * item.quantity;
 
-<div class="dots"></div>
+    const row = document.createElement("div");
+    row.className = "cart-item";
+    row.innerHTML = `
+      <div>
+        <strong>${item.name}</strong><br>
+        <small>${item.color} / ${item.size} × ${item.quantity}</small>
+      </div>
+      <div>
+        ${formatPrice(item.priceCents * item.quantity)}
+        <button onclick="removeFromCart(${index})">×</button>
+      </div>
+    `;
+    cartItems.appendChild(row);
+  });
 
-<div class="price">
-${product.priceText}
-</div>
+  cartCount.textContent = totalQty;
+  cartTotal.innerHTML = `<strong>Total : ${formatPrice(totalPrice)}</strong>`;
+}
 
-<p class="small">
-Livraison comprise.
-</p>
+async function checkoutCart(){
+  if(cart.length === 0){
+    alert("Ton panier est vide.");
+    return;
+  }
 
-<div class="controls">
+  const btn = document.querySelector("#checkoutBtn");
+  btn.disabled = true;
+  btn.textContent = "Ouverture du paiement...";
 
-<div class="field">
+  try{
+    const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({cart})
+    });
 
-<label>
-${sizes.length > 1 ? "Taille" : "Format"}
-</label>
+    const data = await res.json();
 
-<select class="variant-select">
+    if(!data.url){
+      throw new Error(data.error || "Erreur paiement");
+    }
 
-${sizes.map(size => `
-<option value="${product.variants[size]}">
-${size}
-</option>
-`).join("")}
+    localStorage.removeItem("aka_cart");
+    window.top.location.href = data.url;
 
-</select>
+  } catch(err){
+    alert("Erreur : " + err.message);
+    btn.disabled = false;
+    btn.textContent = "Commander le panier";
+  }
+}
 
-</div>
+PRODUCTS.forEach(product => {
+  const colorNames = Object.keys(product.colors);
+  const defaultColor = colorNames[0];
 
-<div class="qty">
+  const card = document.createElement("article");
+  card.className = "product-card";
 
-<button class="minus" type="button">
-−
-</button>
+  card.innerHTML = `
+    <div class="product-head">
+      <div>
+        <h2>${product.name}</h2>
+        <p class="small">Produit officiel AkaTsuki Organization.</p>
+      </div>
+      <span class="tag">${product.priceText}</span>
+    </div>
 
-<span class="qty-value">1</span>
+    <div class="gallery">
+      <div class="slides">
+        <div class="slide">
+          <img class="product-img" src="${product.colors[defaultColor].images[0]}" alt="${product.name}">
+        </div>
+      </div>
+    </div>
 
-<button class="plus" type="button">
-+
-</button>
+    <div class="price">${product.priceText}</div>
 
-</div>
+    <div class="controls">
+      <div class="field">
+        <label>Couleur</label>
+        <select class="color-select">
+          ${colorNames.map(c => `<option value="${c}">${c}</option>`).join("")}
+        </select>
+      </div>
 
-</div>
+      <div class="field">
+        <label>Taille / Format</label>
+        <select class="variant-select"></select>
+      </div>
 
-<button class="buy" type="button">
-Commander maintenant
-</button>
+      <div class="qty">
+        <button class="minus" type="button">−</button>
+        <span class="qty-value">1</span>
+        <button class="plus" type="button">+</button>
+      </div>
+    </div>
 
-<p class="extra">
-Paiement sécurisé Stripe.
-</p>
+    <button class="buy" type="button">Ajouter au panier</button>
+    <p class="extra">Livraison comprise · Paiement sécurisé Stripe.</p>
+  `;
 
-`;
+  shop.appendChild(card);
 
-shop.appendChild(card);
+  const colorSelect = card.querySelector(".color-select");
+  const variantSelect = card.querySelector(".variant-select");
+  const img = card.querySelector(".product-img");
+  const qtyValue = card.querySelector(".qty-value");
 
-setupProductCard(card, product);
+  let quantity = 1;
 
+  function refreshVariants(){
+    const color = colorSelect.value;
+    const colorData = product.colors[color];
+
+    img.src = colorData.images[0];
+
+    variantSelect.innerHTML = Object.keys(colorData.variants)
+      .map(size => `<option value="${colorData.variants[size]}">${size}</option>`)
+      .join("");
+  }
+
+  colorSelect.onchange = refreshVariants;
+  refreshVariants();
+
+  card.querySelector(".minus").onclick = () => {
+    quantity = Math.max(1, quantity - 1);
+    qtyValue.textContent = quantity;
+  };
+
+  card.querySelector(".plus").onclick = () => {
+    quantity = Math.min(10, quantity + 1);
+    qtyValue.textContent = quantity;
+  };
+
+  card.querySelector(".buy").onclick = () => {
+    const color = colorSelect.value;
+    const size = variantSelect.options[variantSelect.selectedIndex].text;
+    const syncVariantId = Number(variantSelect.value);
+
+    addToCart({
+      productKey: product.key,
+      name: product.name,
+      color,
+      size,
+      syncVariantId,
+      quantity,
+      priceCents: product.priceCents
+    });
+
+    card.querySelector(".extra").textContent = "✅ Ajouté au panier";
+  };
 });
 
-function setupProductCard(card, product){
-
-const slides =
-card.querySelector(".slides");
-
-const dotsBox =
-card.querySelector(".dots");
-
-const status =
-card.querySelector(".extra");
-
-const qtyValue =
-card.querySelector(".qty-value");
-
-const variantSelect =
-card.querySelector(".variant-select");
-
-let current = 0;
-let quantity = 1;
-
-product.images.forEach((src,index)=>{
-
-const slide =
-document.createElement("div");
-
-slide.className = "slide";
-
-slide.innerHTML =
-`<img src="${src}" alt="">`;
-
-slides.appendChild(slide);
-
-const dot =
-document.createElement("button");
-
-dot.className =
-"dot" + (index === 0 ? " active" : "");
-
-dot.type = "button";
-
-dot.onclick = ()=>goTo(index);
-
-dotsBox.appendChild(dot);
-
-});
-
-function goTo(index){
-
-current =
-(index + product.images.length)
-% product.images.length;
-
-slides.style.transform =
-`translateX(-${current * 100}%)`;
-
-dotsBox
-.querySelectorAll(".dot")
-.forEach((dot,i)=>{
-
-dot.classList.toggle(
-"active",
-i === current
-);
-
-});
-
-}
-
-card.querySelector(".prev").onclick =
-()=>goTo(current - 1);
-
-card.querySelector(".next").onclick =
-()=>goTo(current + 1);
-
-card.querySelector(".minus").onclick =
-()=>{
-
-quantity =
-Math.max(1, quantity - 1);
-
-qtyValue.textContent =
-quantity;
-
-};
-
-card.querySelector(".plus").onclick =
-()=>{
-
-quantity =
-Math.min(10, quantity + 1);
-
-qtyValue.textContent =
-quantity;
-
-};
-
-let startX = 0;
-
-card.querySelector(".gallery")
-.addEventListener("touchstart",(e)=>{
-
-startX =
-e.touches[0].clientX;
-
-},{passive:true});
-
-card.querySelector(".gallery")
-.addEventListener("touchend",(e)=>{
-
-const endX =
-e.changedTouches[0].clientX;
-
-if(Math.abs(startX - endX) > 45){
-
-goTo(
-startX > endX
-? current + 1
-: current - 1
-);
-
-}
-
-},{passive:true});
-
-card.querySelector(".buy").onclick =
-async (e)=>{
-
-const button =
-e.currentTarget;
-
-button.disabled = true;
-
-button.innerHTML =
-"Connexion au portail AkaTsuki...";
-
-status.innerHTML =
-"🔥 Ouverture du paiement sécurisé...";
-
-try{
-
-const res = await fetch(
-`${BACKEND_URL}/create-checkout-session`,
-{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-productKey:product.key,
-syncVariantId:Number(
-variantSelect.value
-),
-quantity
-})
-}
-);
-
-const data =
-await res.json();
-
-if(!data.url){
-
-throw new Error(
-data.error || "Erreur paiement"
-);
-
-}
-
-window.top.location.href =
-data.url;
-
-}catch(err){
-
-status.textContent =
-"Erreur : " + err.message;
-
-button.disabled = false;
-
-button.innerHTML =
-"Commander maintenant";
-
-}
-
-};
-
-}
-
+renderCart();
 </script>
 
 </body>
