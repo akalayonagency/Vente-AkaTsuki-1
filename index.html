@@ -14,16 +14,13 @@
       --panel:rgba(24,5,5,.78);
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box;}
 
     body{
       margin:0;
       font-family:Georgia,'Times New Roman',serif;
       color:#fff;
-      background:
-      radial-gradient(circle at 50% 10%,#451100 0,#120303 42%,#020000 100%);
+      background:radial-gradient(circle at 50% 10%,#451100 0,#120303 42%,#020000 100%);
       min-height:100vh;
       overflow-x:hidden;
     }
@@ -33,8 +30,8 @@
       position:fixed;
       inset:0;
       background:
-      radial-gradient(circle at 50% 50%,rgba(255,105,0,.35),transparent 35%),
-      linear-gradient(120deg,transparent,rgba(255,0,0,.14),transparent);
+        radial-gradient(circle at 50% 50%,rgba(255,105,0,.35),transparent 35%),
+        linear-gradient(120deg,transparent,rgba(255,0,0,.14),transparent);
       pointer-events:none;
     }
 
@@ -92,8 +89,8 @@
       border-radius:28px;
       padding:24px;
       box-shadow:
-      0 0 40px rgba(255,70,0,.35),
-      inset 0 0 30px rgba(255,125,0,.08);
+        0 0 40px rgba(255,70,0,.35),
+        inset 0 0 30px rgba(255,125,0,.08);
       backdrop-filter:blur(8px);
     }
 
@@ -120,6 +117,7 @@
       white-space:nowrap;
       font-size:12px;
       text-transform:uppercase;
+      box-shadow:0 0 18px rgba(255,120,0,.45);
     }
 
     .gallery{
@@ -167,13 +165,8 @@
       z-index:2;
     }
 
-    .prev{
-      left:12px;
-    }
-
-    .next{
-      right:12px;
-    }
+    .prev{left:12px;}
+    .next{right:12px;}
 
     .dots{
       display:flex;
@@ -211,7 +204,7 @@
 
     .controls{
       display:grid;
-      grid-template-columns:1fr 120px;
+      grid-template-columns:1fr 1fr 120px;
       gap:14px;
       align-items:end;
       margin:20px 0;
@@ -264,8 +257,7 @@
       border:0;
       border-radius:18px;
       padding:18px 20px;
-      background:
-      linear-gradient(135deg,#ffe39a,#ff7400,#a80000);
+      background:linear-gradient(135deg,#ffe39a,#ff7400,#a80000);
       color:#120000;
       font-weight:900;
       text-transform:uppercase;
@@ -288,142 +280,115 @@
       opacity:.88;
     }
 
-    @media(max-width:900px){
-
-      .hero{
-        grid-template-columns:1fr;
-      }
-
-      .title{
-        font-size:46px;
-      }
-
-      .slide{
-        height:330px;
-      }
-
-      .controls{
-        grid-template-columns:1fr;
-      }
-
-      .qty{
-        justify-content:flex-start;
-      }
-
+    #cartToggle{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:50;
+      border:none;
+      border-radius:999px;
+      padding:16px 22px;
+      background:linear-gradient(135deg,#ffe39a,#ff7400,#a80000);
+      color:#120000;
+      font-weight:900;
+      font-size:18px;
+      box-shadow:0 0 28px rgba(255,95,0,.7);
+      cursor:pointer;
     }
-#cartToggle{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:50;
-  border:none;
-  border-radius:999px;
-  padding:16px 22px;
-  background:linear-gradient(135deg,#ffe39a,#ff7400,#a80000);
-  color:#120000;
-  font-weight:900;
-  font-size:18px;
-  box-shadow:0 0 28px rgba(255,95,0,.7);
-  cursor:pointer;
-}
 
-#cartPanel{
-  position:fixed;
-  right:18px;
-  bottom:80px;
-  z-index:49;
-  width:min(92vw,380px);
-  max-height:70vh;
-  overflow:auto;
-  background:rgba(15,0,0,.96);
-  border:1px solid rgba(255,212,107,.45);
-  border-radius:24px;
-  padding:20px;
-  box-shadow:0 0 40px rgba(255,70,0,.45);
-  display:none;
-}
+    #cartPanel{
+      position:fixed;
+      right:18px;
+      bottom:80px;
+      z-index:49;
+      width:min(92vw,380px);
+      max-height:70vh;
+      overflow:auto;
+      background:rgba(15,0,0,.96);
+      border:1px solid rgba(255,212,107,.45);
+      border-radius:24px;
+      padding:20px;
+      box-shadow:0 0 40px rgba(255,70,0,.45);
+      display:none;
+    }
 
-#cartPanel.open{
-  display:block;
-}
+    #cartPanel.open{display:block;}
 
-#cartPanel h2{
-  margin-top:0;
-  color:var(--gold);
-}
+    #cartPanel h2{
+      margin-top:0;
+      color:var(--gold);
+    }
 
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  padding:12px 0;
-  border-bottom:1px solid rgba(255,212,107,.2);
-  font-family:Arial,sans-serif;
-}
+    .cart-item{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,212,107,.2);
+      font-family:Arial,sans-serif;
+    }
 
-.cart-item small{
-  color:#ffd9a3;
-}
+    .cart-item small{color:#ffd9a3;}
 
-.cart-item button{
-  margin-left:8px;
-  border:none;
-  background:#ff4b00;
-  color:white;
-  border-radius:8px;
-  cursor:pointer;
-}
+    .cart-item button{
+      margin-left:8px;
+      border:none;
+      background:#ff4b00;
+      color:white;
+      border-radius:8px;
+      cursor:pointer;
+    }
 
-#cartTotal{
-  margin:18px 0;
-  font-size:20px;
-  color:var(--gold);
-}
+    #cartTotal{
+      margin:18px 0;
+      font-size:20px;
+      color:var(--gold);
+    }
 
-#checkoutBtn{
-  width:100%;
-  border:0;
-  border-radius:18px;
-  padding:16px;
-  background:linear-gradient(135deg,#ffe39a,#ff7400,#a80000);
-  color:#120000;
-  font-weight:900;
-  text-transform:uppercase;
-  cursor:pointer;
-}
+    #checkoutBtn{
+      width:100%;
+      border:0;
+      border-radius:18px;
+      padding:16px;
+      background:linear-gradient(135deg,#ffe39a,#ff7400,#a80000);
+      color:#120000;
+      font-weight:900;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .title{font-size:46px;}
+      .slide{height:330px;}
+      .controls{grid-template-columns:1fr;}
+      .qty{justify-content:flex-start;}
+    }
   </style>
 </head>
 
 <body>
 
 <main class="wrap">
+  <section class="hero">
+    <div>
+      <span class="badge">L’ombre de l’élite</span>
 
-<section class="hero">
+      <h1 class="title">
+        Boutique<br>
+        AkaTsuki
+      </h1>
 
-<div>
+      <p class="subtitle">
+        Produits officiels AkaTsuki Organization.
+        Paiement sécurisé Stripe.
+        Fabrication à la demande.
+        Expédition directe client.
+      </p>
+    </div>
 
-<span class="badge">
-L’ombre de l’élite
-</span>
-
-<h1 class="title">
-Boutique<br>
-AkaTsuki
-</h1>
-
-<p class="subtitle">
-Produits officiels AkaTsuki Organization.
-Paiement sécurisé Stripe.
-Fabrication à la demande.
-Expédition directe client.
-</p>
-
-</div>
-
-<div class="shop" id="shop"></div>
-
-</section>
-
+    <div class="shop" id="shop"></div>
+  </section>
 </main>
 
 <script>
@@ -435,16 +400,16 @@ const PRODUCTS = [
     name:"Casquette AkaTsuki Organization",
     priceCents:1990,
     priceText:"19,90 €",
+    tag:"Édition premium",
     colors:{
       "White":{
         images:[
-          "low-profile-baseball-cap-white-front-6a0de39ff3ca8.png",
+          "low-profile-baseball-cap-white-front-6a0de39ff3ac8.png",
           "low-profile-baseball-cap-white-left-front-6a0de3a000056.png",
           "low-profile-baseball-cap-white-product-details-6a0de3a000661.png"
         ],
         variants:{"Unique":5314638516}
       },
-
       "Dark Navy":{
         images:[
           "low-profile-baseball-cap-dark-navy-front-6a0de39ff3ac8.png",
@@ -461,6 +426,7 @@ const PRODUCTS = [
     name:"Pull AkaTsuki Organization",
     priceCents:3290,
     priceText:"32,90 €",
+    tag:"Confort ultime",
     colors:{
       "Black":{
         images:[
@@ -468,18 +434,8 @@ const PRODUCTS = [
           "unisex-crew-neck-sweatshirt-black-back-6a0de43675f0.png",
           "unisex-crew-neck-sweatshirt-black-back-6a0de436754ca.png"
         ],
-        variants:{
-          S:5314630805,
-          M:5314630806,
-          L:5314630807,
-          XL:5314630808,
-          "2XL":5314630809,
-          "3XL":5314630810,
-          "4XL":5314630811,
-          "5XL":5314630812
-        }
+        variants:{S:5314630805,M:5314630806,L:5314630807,XL:5314630808,"2XL":5314630809,"3XL":5314630810,"4XL":5314630811,"5XL":5314630812}
       },
-
       "White":{
         images:[
           "unisex-crew-neck-sweatshirt-white-front-6a0de436752f.png",
@@ -487,16 +443,7 @@ const PRODUCTS = [
           "unisex-crew-neck-sweatshirt-white-back-6a0de43675b96.png",
           "unisex-crew-neck-sweatshirt-white-back-6a0de43675572.png"
         ],
-        variants:{
-          S:5318047646,
-          M:5318047647,
-          L:5318047648,
-          XL:5318047649,
-          "2XL":5318047650,
-          "3XL":5318047651,
-          "4XL":5318047652,
-          "5XL":5318047653
-        }
+        variants:{S:5318047646,M:5318047647,L:5318047648,XL:5318047649,"2XL":5318047650,"3XL":5318047651,"4XL":5318047652,"5XL":5318047653}
       }
     }
   },
@@ -506,6 +453,7 @@ const PRODUCTS = [
     name:"T-Shirt AkaTsuki Organization",
     priceCents:2090,
     priceText:"20,90 €",
+    tag:"Best seller",
     colors:{
       "White":{
         images:[
@@ -514,16 +462,8 @@ const PRODUCTS = [
           "unisex-basic-softstyle-t-shirt-white-back-6a0de560de711.png",
           "unisex-basic-softstyle-t-shirt-white-back-6a0de560dd93f.png"
         ],
-        variants:{
-          S:5313991277,
-          M:5313991278,
-          L:5313991279,
-          XL:5313991280,
-          "2XL":5313991281,
-          "3XL":5313991282
-        }
+        variants:{S:5313991277,M:5313991278,L:5313991279,XL:5313991280,"2XL":5313991281,"3XL":5313991282}
       },
-
       "Black":{
         images:[
           "unisex-basic-softstyle-t-shirt-black-front-6a0de560ddf8b.png",
@@ -531,14 +471,7 @@ const PRODUCTS = [
           "unisex-basic-softstyle-t-shirt-black-back-6a0de560dd853.png",
           "unisex-basic-softstyle-t-shirt-black-back-6a0de560de4e.png"
         ],
-        variants:{
-          S:5318049010,
-          M:5318049011,
-          L:5318049012,
-          XL:5318049013,
-          "2XL":5318049014,
-          "3XL":5318049015
-        }
+        variants:{S:5318049010,M:5318049011,L:5318049012,XL:5318049013,"2XL":5318049014,"3XL":5318049015}
       }
     }
   },
@@ -548,21 +481,21 @@ const PRODUCTS = [
     name:"Gourde Métal AkaTsuki",
     priceCents:2990,
     priceText:"29,90 €",
+    tag:"Hydratation ultime",
     colors:{
       "Black":{
         images:[
-          "stainless-steel-water-bottle-black-17-oz-front-6a0de59a8073.png",
-          "stainless-steel-water-bottle-black-17-oz-front-6a0de59a80548.png",
-          "stainless-steel-water-bottle-black-17-oz-front-2-6a0de59a80880.png"
+          "stainless-steel-water-bottle-black-17-oz-front-2-6a0de59a80880.png",
+          "stainless-steel-water-bottle-black-17-oz-front-6a0de59a80173.png",
+          "stainless-steel-water-bottle-black-17-oz-front-6a0de59a80548.png"
         ],
         variants:{"17 oz":5313644654}
       },
-
       "White":{
         images:[
-          "stainless-steel-water-bottle-white-17-oz-front-6a0de59a80eb.png",
-          "stainless-steel-water-bottle-white-17-oz-front-6a0de59a805ac.png",
-          "stainless-steel-water-bottle-white-17-oz-front-2-6a0de59a808eb.png"
+          "stainless-steel-water-bottle-white-17-oz-front-2-6a0de59a808eb.png",
+          "stainless-steel-water-bottle-white-17-oz-front-6a0de59a802fd.png",
+          "stainless-steel-water-bottle-white-17-oz-front-6a0de59a805ac.png"
         ],
         variants:{"17 oz":5318050131}
       }
@@ -574,6 +507,7 @@ const PRODUCTS = [
     name:"Mug AkaTsuki Organization",
     priceCents:1490,
     priceText:"14,90 €",
+    tag:"Café de l’ombre",
     colors:{
       "White":{
         images:[
@@ -589,6 +523,7 @@ const PRODUCTS = [
     name:"Sous-verre AkaTsuki",
     priceCents:1190,
     priceText:"11,90 €",
+    tag:"Setup premium",
     colors:{
       "Original":{
         images:[
@@ -605,6 +540,7 @@ const PRODUCTS = [
     name:"Magnet AkaTsuki",
     priceCents:1390,
     priceText:"13,90 €",
+    tag:"Petit mais stylé",
     colors:{
       "White":{
         images:[
@@ -662,6 +598,7 @@ function renderCart(){
         <button id="checkoutBtn">Commander le panier</button>
       </div>
     `;
+
     document.body.appendChild(cartBox);
 
     document.querySelector("#cartToggle").onclick = () => {
@@ -696,6 +633,7 @@ function renderCart(){
         <button onclick="removeFromCart(${index})">×</button>
       </div>
     `;
+
     cartItems.appendChild(row);
   });
 
@@ -714,17 +652,16 @@ async function checkoutCart(){
   btn.textContent = "Ouverture du paiement...";
 
   try{
-    console.log("PANIER ENVOYÉ :", cart);
     const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body: JSON.stringify({
-  cart: cart.map(item => ({
-    productKey: item.productKey,
-    syncVariantId: item.syncVariantId,
-    quantity: item.quantity
-  }))
-})
+        cart: cart.map(item => ({
+          productKey: item.productKey,
+          syncVariantId: item.syncVariantId,
+          quantity: item.quantity
+        }))
+      })
     });
 
     const data = await res.json();
@@ -756,16 +693,16 @@ PRODUCTS.forEach(product => {
         <h2>${product.name}</h2>
         <p class="small">Produit officiel AkaTsuki Organization.</p>
       </div>
-      <span class="tag">${product.priceText}</span>
+      <span class="tag">${product.tag}</span>
     </div>
 
     <div class="gallery">
-      <div class="slides">
-        <div class="slide">
-          <img class="product-img" src="${product.colors[defaultColor].images[0]}" alt="${product.name}">
-        </div>
-      </div>
+      <button class="nav prev" type="button">‹</button>
+      <div class="slides"></div>
+      <button class="nav next" type="button">›</button>
     </div>
+
+    <div class="dots"></div>
 
     <div class="price">${product.priceText}</div>
 
@@ -797,24 +734,71 @@ PRODUCTS.forEach(product => {
 
   const colorSelect = card.querySelector(".color-select");
   const variantSelect = card.querySelector(".variant-select");
-  const img = card.querySelector(".product-img");
+  const slides = card.querySelector(".slides");
+  const dots = card.querySelector(".dots");
   const qtyValue = card.querySelector(".qty-value");
 
   let quantity = 1;
+  let currentSlide = 0;
+
+  function updateGallery(){
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    dots.querySelectorAll(".dot").forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentSlide);
+    });
+  }
+
+  function renderGallery(){
+    const color = colorSelect.value;
+    const colorData = product.colors[color];
+
+    currentSlide = 0;
+
+    slides.innerHTML = colorData.images.map(image => `
+      <div class="slide">
+        <img src="${image}" alt="${product.name}">
+      </div>
+    `).join("");
+
+    dots.innerHTML = colorData.images.map((_, index) => `
+      <button class="dot ${index === 0 ? "active" : ""}" type="button"></button>
+    `).join("");
+
+    updateGallery();
+  }
 
   function refreshVariants(){
     const color = colorSelect.value;
     const colorData = product.colors[color];
 
-    img.src = colorData.images[0];
-
     variantSelect.innerHTML = Object.keys(colorData.variants)
       .map(size => `<option value="${colorData.variants[size]}">${size}</option>`)
       .join("");
+
+    renderGallery();
   }
 
   colorSelect.onchange = refreshVariants;
   refreshVariants();
+
+  card.querySelector(".prev").onclick = () => {
+    const colorData = product.colors[colorSelect.value];
+    currentSlide = (currentSlide - 1 + colorData.images.length) % colorData.images.length;
+    updateGallery();
+  };
+
+  card.querySelector(".next").onclick = () => {
+    const colorData = product.colors[colorSelect.value];
+    currentSlide = (currentSlide + 1) % colorData.images.length;
+    updateGallery();
+  };
+
+  dots.onclick = (e) => {
+    if(!e.target.classList.contains("dot")) return;
+    currentSlide = [...dots.children].indexOf(e.target);
+    updateGallery();
+  };
 
   card.querySelector(".minus").onclick = () => {
     quantity = Math.max(1, quantity - 1);
