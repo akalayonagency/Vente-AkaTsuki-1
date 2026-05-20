@@ -599,7 +599,13 @@ async function checkoutCart(){
     const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({cart})
+      body: JSON.stringify({
+  cart: cart.map(item => ({
+    productKey: item.productKey,
+    syncVariantId: item.syncVariantId,
+    quantity: item.quantity
+  }))
+})
     });
 
     const data = await res.json();
