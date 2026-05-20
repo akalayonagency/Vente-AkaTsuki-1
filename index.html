@@ -3,221 +3,774 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>AkaTsuki Organization — Boutique</title>
-  <meta name="description" content="Boutique officielle AkaTsuki Organization" />
+
   <style>
-    :root{--gold:#ffd46b;--orange:#ff6a00;--red:#b40000;--panel:rgba(24,5,5,.78)}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Georgia,'Times New Roman',serif;color:#fff;background:radial-gradient(circle at 50% 10%,#451100 0,#120303 42%,#020000 100%);min-height:100vh;overflow-x:hidden}
-    body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,105,0,.35),transparent 35%),linear-gradient(120deg,transparent,rgba(255,0,0,.14),transparent);pointer-events:none}
-    .wrap{position:relative;max-width:1180px;margin:0 auto;padding:34px 18px 70px}
-    .hero{display:grid;grid-template-columns:1fr 1.05fr;gap:38px;align-items:center;min-height:88vh}
-    .badge{display:inline-block;border:1px solid rgba(255,212,107,.5);padding:8px 14px;border-radius:999px;color:var(--gold);background:rgba(0,0,0,.35);letter-spacing:.08em;text-transform:uppercase;font-size:13px}
-    .title{font-size:clamp(42px,7vw,82px);line-height:.95;margin:22px 0 16px;text-transform:uppercase;text-shadow:0 0 18px rgba(255,95,0,.9)}
-    .subtitle{font-family:Arial,sans-serif;font-size:18px;line-height:1.65;color:#ffe9c0;max-width:590px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
-    .feature{font-family:Arial,sans-serif;padding:16px;border-radius:18px;background:rgba(0,0,0,.35);border:1px solid rgba(255,212,107,.2)}
-    .shop{display:grid;gap:22px}
-    .product-card{border:1px solid rgba(255,212,107,.45);background:var(--panel);border-radius:28px;padding:24px;box-shadow:0 0 40px rgba(255,70,0,.35), inset 0 0 30px rgba(255,125,0,.08);backdrop-filter:blur(8px)}
-    .product-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:16px}
-    .product-head h2{font-size:28px;margin:0 0 8px}
-    .tag{font-family:Arial,sans-serif;color:#120000;background:linear-gradient(135deg,#ffe39a,#ff7400);font-weight:900;padding:8px 12px;border-radius:999px;white-space:nowrap;font-size:12px;text-transform:uppercase}
-    .gallery{position:relative;overflow:hidden;border-radius:24px;background:rgba(0,0,0,.38);border:1px solid rgba(255,212,107,.22)}
-    .slides{display:flex;transition:transform .35s ease;touch-action:pan-y}
-    .slide{min-width:100%;height:360px;display:flex;align-items:center;justify-content:center;padding:22px}
-    .slide img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 0 24px rgba(255,95,0,.6))}
-    .nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:rgba(10,0,0,.8);color:var(--gold);font-size:26px;cursor:pointer;z-index:2}
-    .prev{left:12px}.next{right:12px}
-    .dots{display:flex;gap:8px;justify-content:center;margin:14px 0}
-    .dot{width:10px;height:10px;border-radius:50%;border:1px solid var(--gold);background:transparent;cursor:pointer}
-    .dot.active{background:var(--gold);box-shadow:0 0 12px rgba(255,212,107,.8)}
-    .small{font-family:Arial,sans-serif;color:#ffd9a3;line-height:1.5}
-    .price{font-size:42px;color:var(--gold);font-weight:bold;margin:12px 0}
-    .controls{display:grid;grid-template-columns:1fr 120px;gap:14px;align-items:end;margin:20px 0}
-    .field label{display:block;font-family:Arial,sans-serif;font-size:13px;color:#ffd9a3;margin-bottom:8px}
-    select{width:100%;padding:13px;border-radius:14px;border:1px solid rgba(255,212,107,.5);background:#160202;color:#fff;font-weight:bold}
-    .qty{display:flex;align-items:center;gap:12px;justify-content:flex-end}
-    .qty button{width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:#180202;color:var(--gold);font-size:22px;cursor:pointer}
-    .qty span{font-size:22px;min-width:25px;text-align:center}
-    .buy{width:100%;border:0;border-radius:18px;padding:18px 20px;background:linear-gradient(135deg,#ffe39a,#ff7400,#a80000);color:#120000;font-weight:900;text-transform:uppercase;font-size:18px;letter-spacing:.08em;cursor:pointer;box-shadow:0 0 28px rgba(255,95,0,.55)}
-    .buy:disabled{opacity:.6;cursor:wait}
-    .extra{margin-top:14px;font-family:Arial,sans-serif;font-size:13px;color:#ffe9c0;opacity:.88}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.title{font-size:46px}.slide{height:330px}.controls{grid-template-columns:1fr}.qty{justify-content:flex-start}}
+    :root{
+      --gold:#ffd46b;
+      --orange:#ff6a00;
+      --red:#b40000;
+      --panel:rgba(24,5,5,.78);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      font-family:Georgia,'Times New Roman',serif;
+      color:#fff;
+      background:
+      radial-gradient(circle at 50% 10%,#451100 0,#120303 42%,#020000 100%);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+      radial-gradient(circle at 50% 50%,rgba(255,105,0,.35),transparent 35%),
+      linear-gradient(120deg,transparent,rgba(255,0,0,.14),transparent);
+      pointer-events:none;
+    }
+
+    .wrap{
+      position:relative;
+      max-width:1180px;
+      margin:0 auto;
+      padding:34px 18px 70px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1.05fr;
+      gap:38px;
+      align-items:center;
+      min-height:88vh;
+    }
+
+    .badge{
+      display:inline-block;
+      border:1px solid rgba(255,212,107,.5);
+      padding:8px 14px;
+      border-radius:999px;
+      color:var(--gold);
+      background:rgba(0,0,0,.35);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:13px;
+    }
+
+    .title{
+      font-size:clamp(42px,7vw,82px);
+      line-height:.95;
+      margin:22px 0 16px;
+      text-transform:uppercase;
+      text-shadow:0 0 18px rgba(255,95,0,.9);
+    }
+
+    .subtitle{
+      font-family:Arial,sans-serif;
+      font-size:18px;
+      line-height:1.65;
+      color:#ffe9c0;
+      max-width:590px;
+    }
+
+    .shop{
+      display:grid;
+      gap:22px;
+    }
+
+    .product-card{
+      border:1px solid rgba(255,212,107,.45);
+      background:var(--panel);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:
+      0 0 40px rgba(255,70,0,.35),
+      inset 0 0 30px rgba(255,125,0,.08);
+      backdrop-filter:blur(8px);
+    }
+
+    .product-head{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:flex-start;
+      margin-bottom:16px;
+    }
+
+    .product-head h2{
+      font-size:28px;
+      margin:0 0 8px;
+    }
+
+    .tag{
+      font-family:Arial,sans-serif;
+      color:#120000;
+      background:linear-gradient(135deg,#ffe39a,#ff7400);
+      font-weight:900;
+      padding:8px 12px;
+      border-radius:999px;
+      white-space:nowrap;
+      font-size:12px;
+      text-transform:uppercase;
+    }
+
+    .gallery{
+      position:relative;
+      overflow:hidden;
+      border-radius:24px;
+      background:rgba(0,0,0,.38);
+      border:1px solid rgba(255,212,107,.22);
+    }
+
+    .slides{
+      display:flex;
+      transition:transform .35s ease;
+      touch-action:pan-y;
+    }
+
+    .slide{
+      min-width:100%;
+      height:360px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+    }
+
+    .slide img{
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+      filter:drop-shadow(0 0 24px rgba(255,95,0,.6));
+    }
+
+    .nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:1px solid var(--gold);
+      background:rgba(10,0,0,.8);
+      color:var(--gold);
+      font-size:26px;
+      cursor:pointer;
+      z-index:2;
+    }
+
+    .prev{
+      left:12px;
+    }
+
+    .next{
+      right:12px;
+    }
+
+    .dots{
+      display:flex;
+      gap:8px;
+      justify-content:center;
+      margin:14px 0;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      border:1px solid var(--gold);
+      background:transparent;
+      cursor:pointer;
+    }
+
+    .dot.active{
+      background:var(--gold);
+      box-shadow:0 0 12px rgba(255,212,107,.8);
+    }
+
+    .small{
+      font-family:Arial,sans-serif;
+      color:#ffd9a3;
+      line-height:1.5;
+    }
+
+    .price{
+      font-size:42px;
+      color:var(--gold);
+      font-weight:bold;
+      margin:12px 0;
+    }
+
+    .controls{
+      display:grid;
+      grid-template-columns:1fr 120px;
+      gap:14px;
+      align-items:end;
+      margin:20px 0;
+    }
+
+    .field label{
+      display:block;
+      font-family:Arial,sans-serif;
+      font-size:13px;
+      color:#ffd9a3;
+      margin-bottom:8px;
+    }
+
+    select{
+      width:100%;
+      padding:13px;
+      border-radius:14px;
+      border:1px solid rgba(255,212,107,.5);
+      background:#160202;
+      color:#fff;
+      font-weight:bold;
+    }
+
+    .qty{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      justify-content:flex-end;
+    }
+
+    .qty button{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:1px solid var(--gold);
+      background:#180202;
+      color:var(--gold);
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    .qty span{
+      font-size:22px;
+      min-width:25px;
+      text-align:center;
+    }
+
+    .buy{
+      width:100%;
+      border:0;
+      border-radius:18px;
+      padding:18px 20px;
+      background:
+      linear-gradient(135deg,#ffe39a,#ff7400,#a80000);
+      color:#120000;
+      font-weight:900;
+      text-transform:uppercase;
+      font-size:18px;
+      letter-spacing:.08em;
+      cursor:pointer;
+      box-shadow:0 0 28px rgba(255,95,0,.55);
+    }
+
+    .buy:disabled{
+      opacity:.6;
+      cursor:wait;
+    }
+
+    .extra{
+      margin-top:14px;
+      font-family:Arial,sans-serif;
+      font-size:13px;
+      color:#ffe9c0;
+      opacity:.88;
+    }
+
+    @media(max-width:900px){
+
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .title{
+        font-size:46px;
+      }
+
+      .slide{
+        height:330px;
+      }
+
+      .controls{
+        grid-template-columns:1fr;
+      }
+
+      .qty{
+        justify-content:flex-start;
+      }
+
+    }
+
   </style>
 </head>
+
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <div>
-        <span class="badge">L’ombre de l’élite</span>
-        <h1 class="title">Boutique<br>AkaTsuki</h1>
-        <p class="subtitle">Produits officiels AkaTsuki Organization. Paiement sécurisé Stripe, fabrication à la demande et expédition directe client.</p>
-    
-      </div>
-      <div class="shop" id="shop"></div>
-    </section>
-  </main>
 
-  <script>
-    const BACKEND_URL = "https://vente-akatsuki.onrender.com";
+<main class="wrap">
 
-    const PRODUCTS = [
-      {
-        key: "tshirt",
-        name: "T-Shirt AkaTsuki Organization",
-        subtitle: "blanc Possibilité de rajouté le Pseudo gratuitement ",
-        badge: "Nouveauté",
-        priceText: "22,90 €",
-        priceCents: 2290,
-        images: ["tshirt-1.png","tshirt-2.png","tshirt-3.png","tshirt-4.png","tshirt-5.png","tshirt-6.png"],
-        variants: {
-          S: 5313991277,
-          M: 5313991278,
-          L: 5313991279,
-          XL: 5313991280,
-          "2XL": 5313991281,
-          "3XL": 5313991282
-        }
-      },
-      {
-        key: "gourde",
-        name: "Gourde Métal 330ml AkaTsuki Organization",
-        subtitle: "La gourde qu'il te faut pour tenir pendant tes lives / Black / 17 oz.",
-        badge: "Coup de Coeur de TSUKI",
-        priceText: "32,90 €",
-        priceCents: 3290,
-        images: ["gourde-1.png","gourde-2.png","gourde-3.png","gourde-4.png","gourde-5.png"],
-        variants: {
-          "Unique": 5313644654
-        }
-      }
-    ];
+<section class="hero">
 
-    const shop = document.querySelector("#shop");
+<div>
 
-    PRODUCTS.forEach((product) => {
-      const sizes = Object.keys(product.variants);
-      const card = document.createElement("article");
-      card.className = "product-card";
-      card.innerHTML = `
-        <div class="product-head">
-          <div>
-            <h2>${product.name}</h2>
-            <p class="small">${product.subtitle}</p>
-          </div>
-          <span class="tag">${product.badge}</span>
-        </div>
+<span class="badge">
+L’ombre de l’élite
+</span>
 
-        <div class="gallery">
-          <button class="nav prev" type="button">‹</button>
-          <div class="slides"></div>
-          <button class="nav next" type="button">›</button>
-        </div>
+<h1 class="title">
+Boutique<br>
+AkaTsuki
+</h1>
 
-        <div class="dots"></div>
+<p class="subtitle">
+Produits officiels AkaTsuki Organization.
+Paiement sécurisé Stripe.
+Fabrication à la demande.
+Expédition directe client.
+</p>
 
-        <div class="price">${product.priceText}</div>
-        <p class="small">Livraison comprise dans le prix affiché.</p>
+</div>
 
-        <div class="controls">
-          <div class="field">
-            <label>${sizes.length > 1 ? "Taille" : "Format"}</label>
-            <select class="variant-select">
-              ${sizes.map(size => `<option value="${product.variants[size]}">${size}</option>`).join("")}
-            </select>
-          </div>
+<div class="shop" id="shop"></div>
 
-          <div class="qty">
-            <button class="minus" type="button">−</button>
-            <span class="qty-value">1</span>
-            <button class="plus" type="button">+</button>
-          </div>
-        </div>
+</section>
 
-        <button class="buy" type="button">Commander maintenant</button>
-        <p class="extra">Paiement sécurisé Stripe.</p>
-      `;
-      shop.appendChild(card);
-      setupProductCard(card, product);
-    });
+</main>
 
-    function setupProductCard(card, product) {
-      const slides = card.querySelector(".slides");
-      const dotsBox = card.querySelector(".dots");
-      const status = card.querySelector(".extra");
-      const qtyValue = card.querySelector(".qty-value");
-      const variantSelect = card.querySelector(".variant-select");
+<script>
 
-      let current = 0;
-      let quantity = 1;
+const BACKEND_URL =
+"https://vente-akatsuki.onrender.com";
 
-      product.images.forEach((src, index) => {
-        const slide = document.createElement("div");
-        slide.className = "slide";
-        slide.innerHTML = `<img src="${src}" alt="${product.name} ${index + 1}">`;
-        slides.appendChild(slide);
+const PRODUCTS = [
 
-        const dot = document.createElement("button");
-        dot.className = "dot" + (index === 0 ? " active" : "");
-        dot.type = "button";
-        dot.onclick = () => goTo(index);
-        dotsBox.appendChild(dot);
-      });
+{
+  key:"casquette",
+  name:"Casquette AkaTsuki Organization",
+  subtitle:"Casquette officielle AkaTsuki.",
+  badge:"Nouveauté",
+  priceText:"20,00 €",
+  images:[
+    "casquette-1.png",
+    "casquette-2.png",
+    "casquette-3.png"
+  ],
+  variants:{
+    "Unique":5314638516
+  }
+},
 
-      function goTo(index) {
-        current = (index + product.images.length) % product.images.length;
-        slides.style.transform = `translateX(-${current * 100}%)`;
-        dotsBox.querySelectorAll(".dot").forEach((dot, i) => dot.classList.toggle("active", i === current));
-      }
+{
+  key:"sweatshirt",
+  name:"Pull AkaTsuki Organization",
+  subtitle:"Sweatshirt noir unisexe.",
+  badge:"Premium",
+  priceText:"34,90 €",
+  images:[
+    "pull-1.png",
+    "pull-2.png",
+    "pull-3.png"
+  ],
+  variants:{
+    "S":5314630805,
+    "M":5314630806,
+    "L":5314630807,
+    "XL":5314630808,
+    "2XL":5314630809,
+    "3XL":5314630810,
+    "4XL":5314630811,
+    "5XL":5314630812
+  }
+},
 
-      card.querySelector(".prev").onclick = () => goTo(current - 1);
-      card.querySelector(".next").onclick = () => goTo(current + 1);
+{
+  key:"coaster",
+  name:"Sous-verre AkaTsuki",
+  subtitle:"Cork-back coaster.",
+  badge:"Goodie",
+  priceText:"8,90 €",
+  images:[
+    "coaster-1.png",
+    "coaster-2.png"
+  ],
+  variants:{
+    "Unique":5314630704
+  }
+},
 
-      card.querySelector(".minus").onclick = () => {
-        quantity = Math.max(1, quantity - 1);
-        qtyValue.textContent = quantity;
-      };
+{
+  key:"mug",
+  name:"Mug AkaTsuki Organization",
+  subtitle:"Mug blanc brillant.",
+  badge:"Classique",
+  priceText:"14,90 €",
+  images:[
+    "mug-1.png",
+    "mug-2.png",
+    "mug-3.png"
+  ],
+  variants:{
+    "11 oz":5314630690
+  }
+},
 
-      card.querySelector(".plus").onclick = () => {
-        quantity = Math.min(10, quantity + 1);
-        qtyValue.textContent = quantity;
-      };
+{
+  key:"magnet",
+  name:"Magnet AkaTsuki",
+  subtitle:"Magnet carré.",
+  badge:"Petit prix",
+  priceText:"6,90 €",
+  images:[
+    "magnet-1.png",
+    "magnet-2.png"
+  ],
+  variants:{
+    "Unique":5314630686
+  }
+},
 
-      let startX = 0;
-      card.querySelector(".gallery").addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-      }, { passive: true });
+{
+  key:"tshirt",
+  name:"T-Shirt AkaTsuki Organization",
+  subtitle:"T-shirt blanc officiel AkaTsuki.",
+  badge:"Best Seller",
+  priceText:"22,90 €",
+  images:[
+    "tshirt-1.png",
+    "tshirt-2.png",
+    "tshirt-3.png",
+    "tshirt-4.png",
+    "tshirt-5.png",
+    "tshirt-6.png"
+  ],
+  variants:{
+    "S":5313991277,
+    "M":5313991278,
+    "L":5313991279,
+    "XL":5313991280,
+    "2XL":5313991281,
+    "3XL":5313991282
+  }
+},
 
-      card.querySelector(".gallery").addEventListener("touchend", (e) => {
-        const endX = e.changedTouches[0].clientX;
-        if (Math.abs(startX - endX) > 45) goTo(startX > endX ? current + 1 : current - 1);
-      }, { passive: true });
+{
+  key:"gourde",
+  name:"Gourde Métal AkaTsuki",
+  subtitle:"Gourde noire officielle AkaTsuki.",
+  badge:"Coup de coeur",
+  priceText:"32,90 €",
+  images:[
+    "gourde-1.png",
+    "gourde-2.png",
+    "gourde-3.png",
+    "gourde-4.png",
+    "gourde-5.png"
+  ],
+  variants:{
+    "17 oz":5313644654
+  }
+}
 
-      card.querySelector(".buy").onclick = async (e) => {
-        const button = e.currentTarget;
-        button.disabled = true;
-        status.textContent = "Ouverture du paiement sécurisé...";
+];
 
-        try {
-          const res = await fetch(`${BACKEND_URL}/create-checkout-session`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              productKey: product.key,
-              syncVariantId: Number(variantSelect.value),
-              quantity
-            })
-          });
+const shop = document.querySelector("#shop");
 
-          const data = await res.json();
-          if (!data.url) throw new Error(data.error || "Erreur paiement");
-          window.top.location.href = data.url;
-        } catch (err) {
-          status.textContent = "Erreur : " + err.message;
-          button.disabled = false;
-        }
-      };
-    }
-  </script>
+PRODUCTS.forEach((product)=>{
+
+const sizes = Object.keys(product.variants);
+
+const card = document.createElement("article");
+
+card.className = "product-card";
+
+card.innerHTML = `
+
+<div class="product-head">
+
+<div>
+<h2>${product.name}</h2>
+<p class="small">${product.subtitle}</p>
+</div>
+
+<span class="tag">${product.badge}</span>
+
+</div>
+
+<div class="gallery">
+
+<button class="nav prev" type="button">
+‹
+</button>
+
+<div class="slides"></div>
+
+<button class="nav next" type="button">
+›
+</button>
+
+</div>
+
+<div class="dots"></div>
+
+<div class="price">
+${product.priceText}
+</div>
+
+<p class="small">
+Livraison comprise.
+</p>
+
+<div class="controls">
+
+<div class="field">
+
+<label>
+${sizes.length > 1 ? "Taille" : "Format"}
+</label>
+
+<select class="variant-select">
+
+${sizes.map(size => `
+<option value="${product.variants[size]}">
+${size}
+</option>
+`).join("")}
+
+</select>
+
+</div>
+
+<div class="qty">
+
+<button class="minus" type="button">
+−
+</button>
+
+<span class="qty-value">1</span>
+
+<button class="plus" type="button">
++
+</button>
+
+</div>
+
+</div>
+
+<button class="buy" type="button">
+Commander maintenant
+</button>
+
+<p class="extra">
+Paiement sécurisé Stripe.
+</p>
+
+`;
+
+shop.appendChild(card);
+
+setupProductCard(card, product);
+
+});
+
+function setupProductCard(card, product){
+
+const slides =
+card.querySelector(".slides");
+
+const dotsBox =
+card.querySelector(".dots");
+
+const status =
+card.querySelector(".extra");
+
+const qtyValue =
+card.querySelector(".qty-value");
+
+const variantSelect =
+card.querySelector(".variant-select");
+
+let current = 0;
+let quantity = 1;
+
+product.images.forEach((src,index)=>{
+
+const slide =
+document.createElement("div");
+
+slide.className = "slide";
+
+slide.innerHTML =
+`<img src="${src}" alt="">`;
+
+slides.appendChild(slide);
+
+const dot =
+document.createElement("button");
+
+dot.className =
+"dot" + (index === 0 ? " active" : "");
+
+dot.type = "button";
+
+dot.onclick = ()=>goTo(index);
+
+dotsBox.appendChild(dot);
+
+});
+
+function goTo(index){
+
+current =
+(index + product.images.length)
+% product.images.length;
+
+slides.style.transform =
+`translateX(-${current * 100}%)`;
+
+dotsBox
+.querySelectorAll(".dot")
+.forEach((dot,i)=>{
+
+dot.classList.toggle(
+"active",
+i === current
+);
+
+});
+
+}
+
+card.querySelector(".prev").onclick =
+()=>goTo(current - 1);
+
+card.querySelector(".next").onclick =
+()=>goTo(current + 1);
+
+card.querySelector(".minus").onclick =
+()=>{
+
+quantity =
+Math.max(1, quantity - 1);
+
+qtyValue.textContent =
+quantity;
+
+};
+
+card.querySelector(".plus").onclick =
+()=>{
+
+quantity =
+Math.min(10, quantity + 1);
+
+qtyValue.textContent =
+quantity;
+
+};
+
+let startX = 0;
+
+card.querySelector(".gallery")
+.addEventListener("touchstart",(e)=>{
+
+startX =
+e.touches[0].clientX;
+
+},{passive:true});
+
+card.querySelector(".gallery")
+.addEventListener("touchend",(e)=>{
+
+const endX =
+e.changedTouches[0].clientX;
+
+if(Math.abs(startX - endX) > 45){
+
+goTo(
+startX > endX
+? current + 1
+: current - 1
+);
+
+}
+
+},{passive:true});
+
+card.querySelector(".buy").onclick =
+async (e)=>{
+
+const button =
+e.currentTarget;
+
+button.disabled = true;
+
+button.innerHTML =
+"Connexion au portail AkaTsuki...";
+
+status.innerHTML =
+"🔥 Ouverture du paiement sécurisé...";
+
+try{
+
+const res = await fetch(
+`${BACKEND_URL}/create-checkout-session`,
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+productKey:product.key,
+syncVariantId:Number(
+variantSelect.value
+),
+quantity
+})
+}
+);
+
+const data =
+await res.json();
+
+if(!data.url){
+
+throw new Error(
+data.error || "Erreur paiement"
+);
+
+}
+
+window.top.location.href =
+data.url;
+
+}catch(err){
+
+status.textContent =
+"Erreur : " + err.message;
+
+button.disabled = false;
+
+button.innerHTML =
+"Commander maintenant";
+
+}
+
+};
+
+}
+
+</script>
+
 </body>
+</html>
 </html>
